@@ -1,0 +1,44 @@
+{
+  "name": "claystove",
+  "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "scripts": {
+    "hooks": "pnpm exec lefthook install",
+    "cz": "pnpm exec cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.1.0",
+    "@commitlint/config-conventional": "20.0.0",
+    "@commitlint/types": "20.0.0",
+    "@types/lodash-es": "4.17.12",
+    "commitizen": "4.3.1",
+    "conventional-changelog-conventionalcommits": "9.1.0",
+    "cz-git": "1.12.0",
+    "lefthook": "2.0.1",
+    "lodash-es": "4.17.21"
+  },
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": ">=22.20.0"
+  }
+}
