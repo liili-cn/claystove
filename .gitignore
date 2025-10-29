@@ -1,0 +1,33 @@
+# OS Specific Files
+.DS_Store
+Thumbs.db
+
+# VS Code personal settings
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# User-specific files
+.vscode/sftp.json
+.vscode/ftp-sync.json
+
+# Keep these VS Code files for team sharing
+!.vscode/
+!.vscode/extensions.json
+!.vscode/settings.shared.json
+!.vscode/launch.shared.json
+
+# VS Code workspace files
+*.code-workspace
+
+# Workspace specific settings
+.vscode/workspace.json
+.vscode/*.code-snippets
+
+# Per-folder settings
+*/.vscode/settings.json
+*/.vscode/launch.json
+
+# Dependency directories
+node_modules/
+jspm_packages/
