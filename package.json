@@ -17,6 +17,7 @@
     "email": "liili_cn@hotmail.com",
     "url": "https://github.com/liili-cn"
   },
+  "type": "module",
   "scripts": {
     "hooks": "pnpm exec lefthook install",
     "cz": "pnpm exec cz"
@@ -28,14 +29,8 @@
   },
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
-    "@commitlint/config-conventional": "20.0.0",
-    "@commitlint/types": "20.0.0",
-    "@types/lodash-es": "4.17.12",
-    "commitizen": "4.3.1",
-    "conventional-changelog-conventionalcommits": "9.1.0",
-    "cz-git": "1.12.0",
-    "lefthook": "2.0.1",
-    "lodash-es": "4.17.21"
+    "@liili-cn/commitlint-config": "workspace:^",
+    "cz-git": "1.12.0"
   },
   "packageManager": "pnpm@10.18.3",
   "engines": {

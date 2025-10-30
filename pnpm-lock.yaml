@@ -12,7 +12,7 @@ importers:
         specifier: 20.1.0
         version: 20.1.0(@types/node@24.9.1)(typescript@5.9.3)
       '@liili-cn/commitlint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:packages/commitlint-config
       cz-git:
         specifier: 1.12.0
