@@ -1,0 +1,28 @@
+{
+  "exclude": ["./tsconfig.base.json"],
+  "include": ["build.config.ts"],
+  "compilerOptions": {
+    // Projects
+    "composite": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // Language and Environment
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+
+    // Modules
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {},
+    "types": ["node"],
+    "allowImportingTsExtensions": true,
+    "noUncheckedSideEffectImports": true,
+
+    // Emit
+    "noEmit": true
+  }
+}

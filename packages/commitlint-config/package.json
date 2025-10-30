@@ -1,0 +1,55 @@
+{
+  "name": "@liili-cn/commitlint-config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "liili 自用的 commitlint 和 cz-git 配置",
+  "keywords": [
+    "config",
+    "commitlint",
+    "cz-git"
+  ],
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.mjs",
+        "types": "./dist/index.d.mts"
+      },
+      "require": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
+    }
+  },
+  "scripts": {
+    "build": "pnpm exec unbuild"
+  },
+  "devDependencies": {
+    "@commitlint/types": "20.0.0",
+    "@types/node": "24.9.1",
+    "cz-git": "1.12.0",
+    "typescript": "~5.9.3",
+    "unbuild": "3.6.1"
+  },
+  "files": [
+    "./dist"
+  ]
+}
