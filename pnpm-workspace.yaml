@@ -1,4 +1,8 @@
 packages:
   - "packages/**"
 
-linkWorkspacePackages: true
+# Dependency Hoisting Settings
+hoist: false
+
+# CLI Settings
+engineStrict: true

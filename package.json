@@ -20,7 +20,10 @@
   "type": "module",
   "scripts": {
     "hooks": "pnpm exec lefthook install",
-    "cz": "pnpm exec cz"
+    "cz": "pnpm exec cz",
+    "cs": "pnpm exec changeset",
+    "version": "pnpm exec changeset version",
+    "release": "pnpm exec changeset publish"
   },
   "config": {
     "commitizen": {
@@ -28,9 +31,13 @@
     }
   },
   "devDependencies": {
+    "@changesets/changelog-github": "0.5.1",
+    "@changesets/cli": "2.29.7",
     "@commitlint/cli": "20.1.0",
-    "@liili-cn/commitlint-config": "workspace:^",
-    "cz-git": "1.12.0"
+    "@liili-cn/commitlint-config": "workspace:*",
+    "commitizen": "4.3.1",
+    "cz-git": "1.12.0",
+    "lefthook": "2.0.1"
   },
   "packageManager": "pnpm@10.18.3",
   "engines": {
