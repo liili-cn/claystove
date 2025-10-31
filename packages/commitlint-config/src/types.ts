@@ -72,19 +72,9 @@ const types: TypesOption[] = [
     emoji: ":ambulance:",
   },
   {
-    value: "deps",
-    name: "deps:     📦️  依赖相关",
-    emoji: ":package:",
-  },
-  {
-    value: "configs",
-    name: "configs:  ⚙️   改变配置文件",
-    emoji: ":gear:",
-  },
-  {
-    value: "ignore",
-    name: "ignore:   🙈  新增或更新 ignore 文件",
-    emoji: ":see_no_evil:",
+    value: "init",
+    name: "init:     🎉  项目初始化",
+    emoji: ":tada:",
   },
   {
     value: "license",
@@ -92,9 +82,24 @@ const types: TypesOption[] = [
     emoji: ":page_facing_up:",
   },
   {
-    value: "init",
-    name: "init:     🎉  项目初始化",
-    emoji: ":tada:",
+    value: "ignore",
+    name: "ignore:   🙈  新增或更新 ignore 文件",
+    emoji: ":see_no_evil:",
+  },
+  {
+    value: "remove",
+    name: "remove:   🔥  删除代码或文件",
+    emoji: ":fire:",
+  },
+  {
+    value: "configs",
+    name: "configs:  ⚙️   改变配置文件",
+    emoji: ":gear:",
+  },
+  {
+    value: "deps",
+    name: "deps:     📦️  依赖相关",
+    emoji: ":package:",
   },
 ];
 
