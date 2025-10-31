@@ -21,9 +21,7 @@
   "scripts": {
     "hooks": "pnpm exec lefthook install",
     "cz": "pnpm exec cz",
-    "cs": "pnpm exec changeset",
-    "version": "pnpm exec changeset version",
-    "release": "pnpm exec changeset publish"
+    "cs": "pnpm exec changeset"
   },
   "config": {
     "commitizen": {
