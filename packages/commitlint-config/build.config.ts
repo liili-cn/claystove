@@ -1,6 +1,6 @@
-import { defineBuildConfig } from "unbuild";
+import { defineBuildConfig, type BuildConfig } from "unbuild";
 
-const config = defineBuildConfig({
+const config: BuildConfig[] = defineBuildConfig({
   entries: ["./src/index"],
   externals: ["cz-git"],
   clean: true,
