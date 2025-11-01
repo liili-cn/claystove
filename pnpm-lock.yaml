@@ -20,6 +20,9 @@ importers:
       '@liili-cn/commitlint-config':
         specifier: workspace:*
         version: link:packages/commitlint-config
+      '@liili-cn/prettier-config':
+        specifier: workspace:*
+        version: link:packages/prettier-config
       commitizen:
         specifier: 4.3.1
         version: 4.3.1(@types/node@24.9.1)(typescript@5.9.3)
