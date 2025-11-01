@@ -97,6 +97,11 @@ const types: TypesOption[] = [
     emoji: ":gear:",
   },
   {
+    value: "scripts",
+    name: "scripts:  ▶️   新增或更新开发脚本",
+    emoji: ":play-circle:",
+  },
+  {
     value: "deps",
     name: "deps:     📦️  依赖相关",
     emoji: ":package:",
