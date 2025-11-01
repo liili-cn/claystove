@@ -1,0 +1,13 @@
+# OS Specific Files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build output directories
+dist/
+
+# Lock file
+pnpm-lock.yaml
