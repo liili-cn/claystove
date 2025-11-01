@@ -1,8 +1,5 @@
 import { type ParserPreset } from "@commitlint/types";
 import { types } from "./types";
-// import { merge } from "lodash-es";
-// @ts-ignore
-// import createPreset from "conventional-changelog-conventionalcommits";
 
 // A helper function to create the custom emoji parser preset.
 async function createEmojiParser(): Promise<ParserPreset> {
@@ -24,12 +21,6 @@ async function createEmojiParser(): Promise<ParserPreset> {
   const emojiParser = {
     parserOpts,
   };
-
-  // const emojiParser = merge({}, await createPreset(), {
-  //   conventionalChangelog: { parserOpts },
-  //   parserOpts,
-  //   recommendedBumpOpts: { parserOpts },
-  // });
 
   return emojiParser;
 }
