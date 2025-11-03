@@ -99,7 +99,7 @@ const types: TypesOption[] = [
   {
     value: "scripts",
     name: "scripts:  ▶️   新增或更新开发脚本",
-    emoji: ":play-circle:",
+    emoji: ":arrow_forward:",
   },
   {
     value: "deps",
