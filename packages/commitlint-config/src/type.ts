@@ -108,4 +108,6 @@ const types: TypesOption[] = [
   },
 ];
 
-export { types };
+export function getTypes(): TypesOption[] {
+  return types;
+}

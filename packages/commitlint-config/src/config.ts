@@ -1,6 +1,7 @@
 import type { UserConfig } from "cz-git";
 import { createEmojiParser } from "./parser";
-import { types } from "./types";
+import { getTypes } from "./type";
+import { getScopes } from "./scope";
 
 const RuleConfigSeverity = {
   Disabled: 0,
@@ -8,7 +9,7 @@ const RuleConfigSeverity = {
   Error: 2,
 } as const;
 
-const config: UserConfig = {
+export const config: UserConfig = {
   parserPreset: (async () => {
     return await createEmojiParser();
   })(),
@@ -32,7 +33,12 @@ const config: UserConfig = {
     "type-enum": [
       RuleConfigSeverity.Error,
       "always",
-      types.map((type) => type.value),
+      getTypes().map((type) => type.value),
+    ],
+    "scope-enum": [
+      RuleConfigSeverity.Error,
+      "always",
+      getScopes().map((scope) => scope.value),
     ],
   },
   prompt: {
@@ -51,16 +57,17 @@ const config: UserConfig = {
       footer: "列举关联 issue (可选)。例如: #31, #I3244:\n",
       confirmCommit: "是否提交或修改 commit ?",
     },
-    types: types,
+    types: getTypes(),
     useEmoji: true,
     emojiAlign: "left",
     useAI: false,
     aiNumber: 1,
     themeColorCode: "",
-    scopes: [],
+    scopes: getScopes(),
     enableMultipleScopes: true,
+
     scopeEnumSeparator: ",",
-    allowCustomScopes: true,
+    allowCustomScopes: false,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",
     customScopesAlias: "custom",
@@ -89,5 +96,3 @@ const config: UserConfig = {
     defaultSubject: "",
   },
 };
-
-export { config };
