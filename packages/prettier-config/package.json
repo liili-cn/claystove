@@ -2,16 +2,17 @@
   "name": "@liili-cn/prettier-config",
   "version": "0.0.0",
   "private": false,
+  "type": "module",
   "description": "liili 自用的 prettier 配置",
   "keywords": [
     "prettier",
     "config"
   ],
-  "homepage": "https://github.com/liili-cn/claystove#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liili-cn/claystove.git"
   },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
   "bugs": {
     "url": "https://github.com/liili-cn/claystove/issues",
     "email": "liili_cn@hotmail.com"
@@ -22,10 +23,13 @@
     "email": "liili_cn@hotmail.com",
     "url": "https://github.com/liili-cn"
   },
-  "type": "module",
+  "files": [
+    "./dist",
+    "CHANGELOG.md"
+  ],
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -49,14 +53,11 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/types": "20.0.0",
+    "@liili-cn/prettier-plugin-sort": "workspace:*",
     "@types/node": "24.9.1",
     "prettier": "3.6.2",
     "publint": "0.3.15",
     "typescript": "5.9.3",
     "unbuild": "3.6.1"
-  },
-  "files": [
-    "./dist",
-    "CHANGELOG.md"
-  ]
+  }
 }
