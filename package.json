@@ -2,11 +2,12 @@
   "name": "claystove",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liili-cn/claystove.git"
   },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
   "bugs": {
     "url": "https://github.com/liili-cn/claystove/issues",
     "email": "liili_cn@hotmail.com"
@@ -17,12 +18,14 @@
     "email": "liili_cn@hotmail.com",
     "url": "https://github.com/liili-cn"
   },
-  "type": "module",
   "scripts": {
-    "hooks": "pnpm exec lefthook install",
-    "cz": "pnpm exec cz",
     "cs": "pnpm exec changeset",
-    "format": "pnpm exec prettier --ignore-unknown --write ."
+    "cz": "pnpm exec cz",
+    "format": "pnpm exec prettier --ignore-unknown --write .",
+    "hooks": "pnpm exec lefthook install",
+    "test": "pnpm exec prettier --write packages/prettier-plugin-sort/tsconfig.lib.json",
+    "test2": "pnpm exec prettier --write package.json",
+    "test3": "pnpm exec prettier --write 4.json"
   },
   "config": {
     "commitizen": {
@@ -38,10 +41,11 @@
     "commitizen": "4.3.1",
     "cz-git": "1.12.0",
     "lefthook": "2.0.1",
-    "prettier": "3.6.2"
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@10.18.3",
   "engines": {
     "node": ">=22.20.0"
-  }
+  },
+  "packageManager": "pnpm@10.18.3"
 }
