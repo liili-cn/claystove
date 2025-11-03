@@ -3,6 +3,15 @@ name: Setup CI
 runs:
   using: composite
   steps:
+    - name: Cache turbo build setup
+      uses: actions/cache@v4
+      with:
+        path: .turbo
+        key: |
+          ${{ runner.os }}-turbo-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-
+
     - name: Install pnpm
       uses: pnpm/action-setup@v4
 
@@ -15,3 +24,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile
+
+    - name: build
+      shell: bash
+      run: pnpm build
