@@ -27,4 +27,9 @@ interface ArrayExpression extends _ArrayExpression {
   elements: Array<ObjectExpression | ArrayExpression | JSONPrimitive>;
 }
 
-export type { ObjectExpression, ObjectProperty, JSONPrimitive };
+export type {
+  JSONPrimitive,
+  ObjectExpression,
+  ObjectProperty,
+  ArrayExpression,
+};

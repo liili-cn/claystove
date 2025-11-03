@@ -1,6 +1,5 @@
-import { type Plugin, type ParserOptions } from "prettier";
-import { type ObjectExpression } from "./types";
-
+import type { Plugin, ParserOptions } from "prettier";
+import type { ObjectExpression } from "./types";
 import { parsers } from "prettier/plugins/babel";
 import { sortPackage, sortTsconfig } from "./sort";
 

@@ -1,6 +1,6 @@
-import { type UserConfig } from "cz-git";
-import { createEmojiParser } from "./parser.ts";
-import { types } from "./types.ts";
+import type { UserConfig } from "cz-git";
+import { createEmojiParser } from "./parser";
+import { types } from "./types";
 
 const RuleConfigSeverity = {
   Disabled: 0,

@@ -1,5 +1,4 @@
 import type { ObjectExpression, ObjectProperty } from "./types";
-
 import { packageOrder, tsconfigOrder } from "./order";
 import { alphabetSort } from "./utils";
 

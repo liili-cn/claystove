@@ -1,4 +1,4 @@
-import { type ParserPreset } from "@commitlint/types";
+import type { ParserPreset } from "@commitlint/types";
 import { types } from "./types";
 
 // A helper function to create the custom emoji parser preset.
