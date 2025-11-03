@@ -1,1 +1,1 @@
-export { config } from "./config.ts";
+export { config as default } from "./config";

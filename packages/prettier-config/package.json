@@ -25,7 +25,7 @@
   },
   "files": [
     "./dist",
-    "CHANGELOG.md"
+    "./CHANGELOG.md"
   ],
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
@@ -53,11 +53,13 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/types": "20.0.0",
-    "@liili-cn/prettier-plugin-sort": "workspace:*",
     "@types/node": "24.9.1",
     "prettier": "3.6.2",
     "publint": "0.3.15",
     "typescript": "5.9.3",
     "unbuild": "3.6.1"
+  },
+  "peerDependencies": {
+    "@liili-cn/prettier-plugin-sort": "workspace:*"
   }
 }
