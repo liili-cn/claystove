@@ -1,6 +1,6 @@
-import type { ObjectExpression, ObjectProperty } from "./types";
+import type { ObjectExpression, ObjectProperty } from "./types/types";
 import { packageOrder, tsconfigOrder } from "./order";
-import { alphabetSort } from "./utils";
+import { alphabetSort } from "./shared/utils";
 
 function sortByOrder(ast: { node: ObjectExpression }, order: string[]) {
   const others: ObjectProperty[] = [];
@@ -24,7 +24,7 @@ function sortByOrder(ast: { node: ObjectExpression }, order: string[]) {
   ast.node.properties = [...known, ...others];
 }
 
-function sortPackage(ast: { node: ObjectExpression }): {
+export function sortPackage(ast: { node: ObjectExpression }): {
   node: ObjectExpression;
 } {
   sortByOrder(ast, packageOrder);
@@ -32,12 +32,10 @@ function sortPackage(ast: { node: ObjectExpression }): {
   return ast;
 }
 
-function sortTsconfig(ast: { node: ObjectExpression }): {
+export function sortTsconfig(ast: { node: ObjectExpression }): {
   node: ObjectExpression;
 } {
   sortByOrder(ast, tsconfigOrder);
 
   return ast;
 }
-
-export { sortPackage, sortTsconfig };

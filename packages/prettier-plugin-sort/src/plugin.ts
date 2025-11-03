@@ -1,5 +1,5 @@
 import type { Plugin, ParserOptions } from "prettier";
-import type { ObjectExpression } from "./types";
+import type { ObjectExpression } from "./types/types";
 import { parsers } from "prettier/plugins/babel";
 import { sortPackage, sortTsconfig } from "./sort";
 
@@ -23,7 +23,7 @@ function parse(text: string, options: ParserOptions) {
   return ast;
 }
 
-const plugin: Plugin = {
+export const plugin: Plugin = {
   parsers: {
     json: {
       ...parsers["json"],
@@ -35,5 +35,3 @@ const plugin: Plugin = {
     },
   },
 };
-
-export { plugin };

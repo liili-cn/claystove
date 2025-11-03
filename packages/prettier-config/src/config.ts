@@ -1,6 +1,6 @@
 import type { Config } from "prettier";
 
-const config: Config = {
+export const config: Config = {
   printWidth: 80,
   tabWidth: 2,
   useTabs: false,
@@ -24,5 +24,3 @@ const config: Config = {
   singleAttributePerLine: false,
   plugins: ["@liili-cn/prettier-plugin-sort"],
 };
-
-export { config };

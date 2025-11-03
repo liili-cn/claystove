@@ -1,4 +1,4 @@
-const packageOrder: string[] = [
+export const packageOrder: string[] = [
   "$schema",
   "name",
   "version",
@@ -42,7 +42,7 @@ const packageOrder: string[] = [
   "workspaces",
 ];
 
-const tsconfigOrder: string[] = [
+export const tsconfigOrder: string[] = [
   "$schema",
   "extends",
   "files",
@@ -53,5 +53,3 @@ const tsconfigOrder: string[] = [
   "watchOptions",
   "typeAcquisition",
 ];
-
-export { packageOrder, tsconfigOrder };
