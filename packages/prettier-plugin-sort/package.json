@@ -1,0 +1,63 @@
+{
+  "name": "@liili-cn/prettier-plugin-sort",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "description": "liili 自用的 prettier 插件，对 package.json 和 tsconfig.json 进行排序",
+  "keywords": [
+    "prettier",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "files": [
+    "./dist",
+    "./CHANGELOG.md"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "pnpm exec unbuild",
+    "check-exports": "pnpm exec attw --pack .",
+    "check-package": "pnpm exec publint",
+    "check-type": "pnpm exec tsc -p tsconfig.lib.json",
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm check-exports && pnpm check-package"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
+    "@babel/types": "7.28.5",
+    "@commitlint/types": "20.0.0",
+    "@types/node": "24.9.1",
+    "prettier": "3.6.2",
+    "publint": "0.3.15",
+    "typescript": "5.9.3",
+    "unbuild": "3.6.1"
+  }
+}
