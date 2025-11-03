@@ -53,7 +53,6 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@babel/types": "7.28.5",
-    "@commitlint/types": "20.0.0",
     "@types/node": "24.9.1",
     "prettier": "3.6.2",
     "publint": "0.3.15",
