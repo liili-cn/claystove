@@ -1,6 +1,6 @@
 import { type TypesOption } from "cz-git";
 
-const types: TypesOption[] = [
+export const types: TypesOption[] = [
   {
     value: "feat",
     name: "feat:     ✨  新增功能",
@@ -107,7 +107,3 @@ const types: TypesOption[] = [
     emoji: ":package:",
   },
 ];
-
-export function getTypes(): TypesOption[] {
-  return types;
-}

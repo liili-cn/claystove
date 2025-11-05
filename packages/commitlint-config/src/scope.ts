@@ -1,8 +1,10 @@
 import type { ScopesTypeItem } from "./types/types";
 import { resolve, basename, dirname } from "node:path";
 import { existsSync, readFileSync } from "node:fs";
+import { execSync } from "node:child_process";
 import { parseYAML, parseJSON } from "confbox";
-import { sync } from "fast-glob";
+import fg from "fast-glob";
+import consola from "consola";
 
 function normalizePatterns(patterns: string[]): string[] {
   return patterns.map((pattern) => {
@@ -10,7 +12,7 @@ function normalizePatterns(patterns: string[]): string[] {
   });
 }
 
-export function getScopes(): ScopesTypeItem[] {
+function getScopes() {
   let scopes: ScopesTypeItem[] = [];
 
   const path = resolve(process.cwd(), "pnpm-workspace.yaml");
@@ -24,8 +26,8 @@ export function getScopes(): ScopesTypeItem[] {
 
   const patterns = normalizePatterns(packages);
 
-  sync(patterns).forEach((pattern) => {
-    const filepaths = sync(pattern, {
+  patterns.forEach((pattern) => {
+    const filepaths = fg.sync(pattern, {
       cwd: process.cwd(),
       ignore: ["**/node_modules/**", "**/bower_components/**"],
     });
@@ -43,3 +45,35 @@ export function getScopes(): ScopesTypeItem[] {
 
   return scopes;
 }
+
+export const scopes: ScopesTypeItem[] = getScopes();
+
+function getDefaultScope() {
+  let defaultScopes: string[] = [];
+
+  const files = execSync("git status --porcelain || true")
+    .toString()
+    .split("\n")
+    .filter((line) => line.length > 0 && line[0] !== " ")
+    .map((line) => line.substring(3).trim());
+  consola.log("本次提交涉及文件：\n" + files.join("\n"));
+
+  const dirnames = [...new Set(files.map((file) => dirname(file)))];
+
+  scopes
+    .filter((scope) => {
+      const name = scope.name;
+      const pkgname = name.substring(0, name.indexOf(":"));
+      return dirnames.some(
+        (dirname) => dirname === pkgname || dirname.startsWith(pkgname)
+      );
+    })
+    .forEach((scope) => {
+      defaultScopes.push(scope.value);
+    });
+  consola.log("本次提交涉及范围：\n" + defaultScopes.join("\n"));
+
+  return defaultScopes;
+}
+
+export const defaultScopes: string[] = getDefaultScope();
