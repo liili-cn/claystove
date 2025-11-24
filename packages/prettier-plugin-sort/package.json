@@ -50,6 +50,9 @@
     "prepack": "pnpm build",
     "prepublishOnly": "pnpm check-exports && pnpm check-package"
   },
+  "dependencies": {
+    "sort-package-json": "3.4.0"
+  },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@babel/types": "7.28.5",

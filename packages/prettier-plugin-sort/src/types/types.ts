@@ -8,7 +8,7 @@ import type {
   NullLiteral,
 } from "@babel/types";
 
-export type JSONPrimitive =
+export type PrimitiveExpression =
   | StringLiteral
   | NumericLiteral
   | BooleanLiteral
@@ -20,9 +20,9 @@ export interface ObjectExpression extends _ObjectExpression {
 
 export interface ObjectProperty extends _ObjectProperty {
   key: StringLiteral;
-  value: ObjectExpression | ArrayExpression | JSONPrimitive;
+  value: ObjectExpression | ArrayExpression | PrimitiveExpression;
 }
 
 export interface ArrayExpression extends _ArrayExpression {
-  elements: Array<ObjectExpression | ArrayExpression | JSONPrimitive>;
+  elements: Array<ObjectExpression | ArrayExpression | PrimitiveExpression>;
 }
