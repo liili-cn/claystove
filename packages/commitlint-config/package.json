@@ -1,6 +1,6 @@
 {
   "name": "@liili-cn/commitlint-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
   "description": "liili 自用的 commitlint 和 cz-git 配置",
