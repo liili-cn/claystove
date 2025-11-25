@@ -1,44 +1,54 @@
 import type { Plugin, ParserOptions } from "prettier";
-import type { ObjectExpression } from "./types/types";
+import detectIndent from "detect-indent";
+import { detectNewlineGraceful as detectNewline } from "detect-newline";
 import { sortPackageJson } from "sort-package-json";
-import { packageSortOrder } from "./order";
+import { packageJsonSortOrder } from "./order";
+import { sortExports } from "./sort";
 import { parsers } from "prettier/plugins/babel";
-import { sortPackage, sortTsconfig } from "./sort";
 
 const PKG_REG = /[/\\]package\.json$/;
-const TS_CONFIG_REG = /[/\\]tsconfig(\..*)?\.json$/;
 
-function parse(text: string, options: ParserOptions) {
+function editStringJSON(json: any, over: (json: any) => any) {
+  if (typeof json === "string") {
+    const { indent, type } = detectIndent(json);
+    const endCharacters = json.slice(-1) === "\n" ? "\n" : "";
+    const newline = detectNewline(json);
+    json = JSON.parse(json);
+
+    let result =
+      JSON.stringify(over(json), null, type === "tab" ? "\t" : indent) +
+      endCharacters;
+    if (newline === "\r\n") {
+      result = result.replace(/\n/g, newline);
+    }
+    return result;
+  }
+
+  return over(json);
+}
+
+function preprocess(text: string, options: ParserOptions) {
   const { filepath } = options;
 
   if (PKG_REG.test(filepath)) {
-    text = sortPackageJson(text, { sortOrder: packageSortOrder });
+    text = sortPackageJson(text, { sortOrder: packageJsonSortOrder });
+
+    // sort exports
+    text = editStringJSON(text, sortExports);
   }
 
-  const ast = parsers["json"].parse(text, options) as {
-    node: ObjectExpression;
-  };
-
-  if (PKG_REG.test(filepath)) {
-    sortPackage(ast);
-  }
-
-  if (TS_CONFIG_REG.test(filepath)) {
-    sortTsconfig(ast);
-  }
-
-  return ast;
+  return text;
 }
 
 export const plugin: Plugin = {
   parsers: {
     json: {
       ...parsers["json"],
-      parse,
+      preprocess,
     },
     "json-stringify": {
       ...parsers["json-stringify"],
-      parse,
+      preprocess,
     },
   },
 };

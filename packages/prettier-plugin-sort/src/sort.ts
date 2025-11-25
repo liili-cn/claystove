@@ -1,74 +1,55 @@
-import type { ObjectExpression, ObjectProperty } from "./types/types";
-import { tsconfigSortOrder } from "./order";
-import { alphabeticSort } from "./shared/utils";
+import type { PackageJson, PackageJsonExports } from "pkg-types";
+import { destr } from "destr";
 
-function sortExports(value: ObjectProperty["value"]) {
-  if (value.type === "ObjectExpression") {
-    const first: ObjectProperty[] = [];
-    const last: ObjectProperty[] = [];
-    const others: ObjectProperty[] = [];
-    value.properties.forEach((prop) => {
-      if (prop.key.value === "types") {
-        first.push(prop);
-      } else if (prop.key.value === "default") {
-        last.push(prop);
+function _sortExports(exports: PackageJsonExports): PackageJsonExports {
+  if (
+    typeof exports === "object" &&
+    exports !== null &&
+    !(exports instanceof Array)
+  ) {
+    const paths: string[] = [];
+    const conditions: string[] = [];
+    Object.keys(exports).forEach((key) => {
+      if (key.startsWith(".")) {
+        paths.push(key);
       } else {
-        others.push(prop);
-      }
-
-      sortExports(prop.value);
-    });
-
-    value.properties = [...first, ...others, ...last];
-  }
-
-  if (value.type === "ArrayExpression") {
-    value.elements.forEach((expression) => {
-      sortExports(expression);
-    });
-  }
-}
-
-export function sortPackage(ast: { node: ObjectExpression }): void {
-  // sort exports
-  const exports = ast.node.properties.find((prop) => {
-    return prop.key.value === "exports";
-  });
-
-  if (exports) {
-    sortExports(exports.value);
-  }
-}
-
-function sortByOrder(value: ObjectProperty["value"], order: string[]) {
-  if (value.type === "ObjectExpression") {
-    const known: ObjectProperty[] = [];
-    const others: ObjectProperty[] = [];
-    value.properties.forEach((prop) => {
-      if (order.includes(prop.key.value)) {
-        known.push(prop);
-      } else {
-        others.push(prop);
-      }
-
-      if (prop.key.value in tsconfigSortOrder) {
-        sortByOrder(prop.value, tsconfigSortOrder[prop.key.value]!);
+        conditions.push(key);
       }
     });
 
-    known.sort((a, b) => {
-      const indexA = known.findIndex((prop) => a.key.value === prop.key.value);
-      const indexB = known.findIndex((prop) => b.key.value === prop.key.value);
-      return alphabeticSort(indexA, indexB);
-    });
-    others.sort((a, b) => {
-      return alphabeticSort(a.key.value, b.key.value);
-    });
+    {
+      const index = conditions.indexOf("types");
+      if (index !== -1) {
+        conditions.splice(index, 1);
+        conditions.unshift("types");
+      }
+    }
 
-    value.properties = [...known, ...others];
+    {
+      const index = conditions.indexOf("default");
+      if (index !== -1) {
+        conditions.splice(index, 1);
+        conditions.push("default");
+      }
+    }
+
+    return Object.fromEntries(
+      [...paths, ...conditions].map((key) => [
+        key,
+        exports[key] ? _sortExports(exports[key]) : exports[key],
+      ])
+    );
   }
+
+  return exports;
 }
 
-export function sortTsconfig(ast: { node: ObjectExpression }): void {
-  sortByOrder(ast.node, tsconfigSortOrder.$root);
+export function sortExports(json: string): PackageJson {
+  const packageJson = destr<PackageJson>(json);
+
+  if (packageJson.exports) {
+    packageJson.exports = _sortExports(packageJson.exports);
+  }
+
+  return packageJson;
 }

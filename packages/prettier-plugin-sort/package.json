@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "liili 自用的 prettier 插件，对 package.json 和 tsconfig.json 进行排序",
+  "description": "liili 自用的 prettier 插件，对 package.json 进行排序",
   "keywords": [
     "prettier",
     "plugin"
@@ -51,13 +51,15 @@
     "prepublishOnly": "pnpm check-exports && pnpm check-package"
   },
   "dependencies": {
+    "destr": "2.0.5",
+    "detect-indent": "7.0.2",
+    "detect-newline": "4.0.1",
     "sort-package-json": "3.4.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
-    "@babel/types": "7.28.5",
     "@types/node": "24.9.1",
-    "prettier": "3.6.2",
+    "pkg-types": "2.3.0",
     "publint": "0.3.15",
     "typescript": "5.9.3",
     "unbuild": "3.6.1"
