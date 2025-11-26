@@ -5,7 +5,7 @@ function _sortExports(exports: PackageJsonExports): PackageJsonExports {
   if (
     typeof exports === "object" &&
     exports !== null &&
-    !(exports instanceof Array)
+    !Array.isArray(exports)
   ) {
     const paths: string[] = [];
     const conditions: string[] = [];

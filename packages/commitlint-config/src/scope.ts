@@ -3,8 +3,8 @@ import { resolve, basename, dirname } from "node:path";
 import { existsSync, readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { parseYAML, parseJSON } from "confbox";
-import fg from "fast-glob";
-import consola from "consola";
+import { default as fg } from "fast-glob";
+import { default as consola } from "consola";
 
 function normalizePatterns(patterns: string[]): string[] {
   return patterns.map((pattern) => {

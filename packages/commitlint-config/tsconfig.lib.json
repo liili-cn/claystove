@@ -16,7 +16,6 @@
     // Modules
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "baseUrl": ".",
     "paths": {},
     "types": ["node"],
     "allowImportingTsExtensions": true,

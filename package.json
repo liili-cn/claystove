@@ -23,7 +23,8 @@
     "cs": "pnpm exec changeset",
     "cz": "pnpm exec cz",
     "format": "pnpm exec prettier --ignore-unknown --write .",
-    "hooks": "pnpm exec lefthook install"
+    "hooks": "pnpm exec lefthook install",
+    "lint": "oxlint --type-aware ."
   },
   "config": {
     "commitizen": {
@@ -40,6 +41,8 @@
     "commitizen": "4.3.1",
     "cz-git": "1.12.0",
     "lefthook": "2.0.1",
+    "oxlint": "1.29.0",
+    "oxlint-tsgolint": "0.8.1",
     "prettier": "3.6.2",
     "turbo": "2.6.0",
     "typescript": "5.9.3"

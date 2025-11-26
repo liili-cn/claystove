@@ -4,6 +4,10 @@ pre-commit:
     format:
       run: pnpm exec prettier --ignore-unknown --write {staged_files}
       stage_fixed: true
+    lint:
+      run: pnpm exec oxlint --type-aware --fix {staged_files}
+      glob: "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}"
+      stage_fixed: true
 
 commit-msg:
   commands:
