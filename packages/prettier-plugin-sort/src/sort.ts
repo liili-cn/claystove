@@ -1,12 +1,10 @@
 import type { PackageJson, PackageJsonExports } from "pkg-types";
 import { destr } from "destr";
 
-function _sortExports(exports: PackageJsonExports): PackageJsonExports {
-  if (
-    typeof exports === "object" &&
-    exports !== null &&
-    !Array.isArray(exports)
-  ) {
+function _sortExports(
+  exports?: PackageJsonExports
+): PackageJsonExports | undefined {
+  if (typeof exports === "object" && !Array.isArray(exports)) {
     const paths: string[] = [];
     const conditions: string[] = [];
     Object.keys(exports).forEach((key) => {
@@ -34,10 +32,7 @@ function _sortExports(exports: PackageJsonExports): PackageJsonExports {
     }
 
     return Object.fromEntries(
-      [...paths, ...conditions].map((key) => [
-        key,
-        exports[key] ? _sortExports(exports[key]) : exports[key],
-      ])
+      [...paths, ...conditions].map((key) => [key, _sortExports(exports[key])])
     );
   }
 
@@ -46,10 +41,7 @@ function _sortExports(exports: PackageJsonExports): PackageJsonExports {
 
 export function sortExports(json: string): PackageJson {
   const packageJson = destr<PackageJson>(json);
-
-  if (packageJson.exports) {
-    packageJson.exports = _sortExports(packageJson.exports);
-  }
+  packageJson.exports = _sortExports(packageJson.exports);
 
   return packageJson;
 }

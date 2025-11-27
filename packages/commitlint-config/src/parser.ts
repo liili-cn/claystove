@@ -2,7 +2,7 @@ import type { ParserPreset } from "@commitlint/types";
 import { types } from "./type";
 
 // A helper function to create the custom emoji parser preset.
-export async function createEmojiParser(): Promise<ParserPreset> {
+function createEmojiParser(): ParserPreset {
   // Generates the regex from the emojis defined in the conventional config.
   const emojiRegexPart = Object.values(types)
     .map((option) => option.emoji?.trim())
@@ -24,3 +24,5 @@ export async function createEmojiParser(): Promise<ParserPreset> {
 
   return emojiParser;
 }
+
+export const emojiParser: ParserPreset = createEmojiParser();

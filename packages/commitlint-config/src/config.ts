@@ -1,5 +1,5 @@
 import type { UserConfig } from "cz-git";
-import { createEmojiParser } from "./parser";
+import { emojiParser } from "./parser";
 import { types } from "./type";
 import { scopes, defaultScopes } from "./scope";
 
@@ -10,9 +10,7 @@ const RuleConfigSeverity = {
 } as const;
 
 export const config: UserConfig = {
-  parserPreset: (async () => {
-    return await createEmojiParser();
-  })(),
+  parserPreset: emojiParser,
   rules: {
     // @see: https://commitlint.js.org/#/reference-rule
     "body-leading-blank": [RuleConfigSeverity.Warning, "always"],

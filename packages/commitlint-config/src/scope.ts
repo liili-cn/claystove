@@ -6,12 +6,6 @@ import { parseYAML, parseJSON } from "confbox";
 import { default as fg } from "fast-glob";
 import { default as consola } from "consola";
 
-function normalizePatterns(patterns: string[]): string[] {
-  return patterns.map((pattern) => {
-    return pattern.replace(/\/?$/, "/package.json");
-  });
-}
-
 function getScopes() {
   let scopes: ScopesTypeItem[] = [];
 
@@ -24,7 +18,9 @@ function getScopes() {
     readFileSync(path, "utf-8")
   );
 
-  const patterns = normalizePatterns(packages);
+  const patterns = packages.map((pattern) => {
+    return pattern.replace(/\/?$/, "/package.json");
+  });
 
   patterns.forEach((pattern) => {
     const filepaths = fg.sync(pattern, {
@@ -55,7 +51,7 @@ function getDefaultScope() {
     .toString()
     .split("\n")
     .filter((line) => line.length > 0 && line[0] !== " ")
-    .map((line) => line.substring(3).trim());
+    .map((line) => line.slice(3).trim());
   consola.log("本次提交涉及文件：\n" + files.join("\n"));
 
   const dirnames = [...new Set(files.map((file) => dirname(file)))];
@@ -63,7 +59,7 @@ function getDefaultScope() {
   scopes
     .filter((scope) => {
       const name = scope.name;
-      const pkgname = name.substring(0, name.indexOf(":"));
+      const pkgname = name.slice(0, name.indexOf(":"));
       return dirnames.some(
         (dirname) => dirname === pkgname || dirname.startsWith(pkgname)
       );
