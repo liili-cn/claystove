@@ -1,10 +1,10 @@
-import type { ScopesTypeItem } from "./types/types";
-import { resolve, basename, dirname } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { existsSync, readFileSync } from "node:fs";
-import { execSync } from "node:child_process";
-import { parseYAML, parseJSON } from "confbox";
-import { default as fg } from "fast-glob";
+import { parseJSON, parseYAML } from "confbox";
+import type { ScopesTypeItem } from "./types/types";
 import { default as consola } from "consola";
+import { execSync } from "node:child_process";
+import { default as fg } from "fast-glob";
 
 function getScopes(): ScopesTypeItem[] {
   let scopes: ScopesTypeItem[] = [];
@@ -15,7 +15,7 @@ function getScopes(): ScopesTypeItem[] {
   }
 
   const { packages } = parseYAML<{ packages: string[] }>(
-    readFileSync(path, "utf-8")
+    readFileSync(path, "utf8")
   );
 
   const patterns = packages.map((pattern) =>
@@ -30,11 +30,11 @@ function getScopes(): ScopesTypeItem[] {
 
     filepaths.forEach((filepath) => {
       const { description } = parseJSON<{ description: string }>(
-        readFileSync(filepath, "utf-8")
+        readFileSync(filepath, "utf8")
       );
       scopes.push({
         value: basename(dirname(filepath)),
-        name: dirname(filepath) + ": " + description,
+        name: `${dirname(filepath)}: ${description}`,
       });
     });
   });
@@ -52,13 +52,13 @@ function getDefaultScope(): string[] {
     .split("\n")
     .filter((line) => line.length > 0 && line[0] !== " ")
     .map((line) => line.slice(3).trim());
-  consola.log("本次提交涉及文件：\n" + files.join("\n"));
+  consola.log(`本次提交涉及文件：\n${files.join("\n")}`);
 
   const dirnames = [...new Set(files.map((file) => dirname(file)))];
 
   scopes
     .filter((scope) => {
-      const name = scope.name;
+      const { name } = scope;
       const pkgname = name.slice(0, name.indexOf(":"));
       return dirnames.some(
         (dirname) => dirname === pkgname || dirname.startsWith(pkgname)
@@ -67,7 +67,7 @@ function getDefaultScope(): string[] {
     .forEach((scope) => {
       defaultScopes.push(scope.value);
     });
-  consola.log("本次提交涉及范围：\n" + defaultScopes.join("\n"));
+  consola.log(`本次提交涉及范围：\n${defaultScopes.join("\n")}`);
 
   return defaultScopes;
 }

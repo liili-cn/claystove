@@ -1,7 +1,7 @@
+import { defaultScopes, scopes } from "./scope";
 import type { UserConfig } from "cz-git";
 import { emojiParser } from "./parser";
 import { types } from "./type";
-import { scopes, defaultScopes } from "./scope";
 
 const RuleConfigSeverity = {
   Disabled: 0,
@@ -69,7 +69,7 @@ export const config: UserConfig = {
     customScopesAlign: "bottom",
     customScopesAlias: "custom",
     emptyScopesAlias: "empty",
-    upperCaseSubject: null,
+    // upperCaseSubject: undefined,
     markBreakingChangeMode: true,
     allowBreakingChanges: ["feat", "fix"],
     breaklineNumber: 100,

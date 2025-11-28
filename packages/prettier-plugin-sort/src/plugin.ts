@@ -1,8 +1,8 @@
-import type { Plugin, ParserOptions } from "prettier";
-import { sortPackageJson } from "sort-package-json";
+import type { ParserOptions, Plugin } from "prettier";
 import { packageJsonSortOrder } from "./order";
-import { sortExports } from "./sort";
 import { parsers } from "prettier/plugins/babel";
+import { sortExports } from "./sort";
+import { sortPackageJson } from "sort-package-json";
 
 const PKG_REG = /[/\\]package\.json$/;
 

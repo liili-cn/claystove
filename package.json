@@ -24,7 +24,7 @@
     "cz": "pnpm exec cz",
     "format": "pnpm exec prettier --ignore-unknown --write .",
     "hooks": "pnpm exec lefthook install",
-    "lint": "oxlint --type-aware ."
+    "lint": "oxlint --type-aware --fix ."
   },
   "config": {
     "commitizen": {
