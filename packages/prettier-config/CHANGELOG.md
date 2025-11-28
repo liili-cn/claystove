@@ -1,5 +1,12 @@
 # @liili-cn/prettier-config
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`73d1aeb`](https://github.com/liili-cn/claystove/commit/73d1aeb44926efdbbffa84f068b551d3394a22ca), [`8401b86`](https://github.com/liili-cn/claystove/commit/8401b867b84ff0e2ad4be6964f023c8c977758a3)]:
+  - @liili-cn/prettier-plugin-sort@0.1.1
+
 ## 1.0.0
 
 ### Patch Changes

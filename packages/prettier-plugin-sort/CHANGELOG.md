@@ -1,5 +1,13 @@
 # @liili-cn/prettier-plugin-sort
 
+## 0.1.1
+
+### Patch Changes
+
+- [`73d1aeb`](https://github.com/liili-cn/claystove/commit/73d1aeb44926efdbbffa84f068b551d3394a22ca) Thanks [@liili-cn](https://github.com/liili-cn)! - 改为在 preprocess 方法里进行排序
+
+- [`8401b86`](https://github.com/liili-cn/claystove/commit/8401b867b84ff0e2ad4be6964f023c8c977758a3) Thanks [@liili-cn](https://github.com/liili-cn)! - 修复 JSON 格式问题
+
 ## 0.1.0
 
 ### Minor Changes
