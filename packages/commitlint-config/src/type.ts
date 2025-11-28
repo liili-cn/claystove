@@ -1,4 +1,4 @@
-import { type TypesOption } from "cz-git";
+import type { TypesOption } from "cz-git";
 
 export const types: TypesOption[] = [
   {

@@ -6,17 +6,18 @@ import { parsers } from "prettier/plugins/babel";
 
 const PKG_REG = /[/\\]package\.json$/;
 
-function preprocess(text: string, options: ParserOptions) {
+function preprocess(text: string, options: ParserOptions): string {
+  let json = text;
   const { filepath } = options;
 
   if (PKG_REG.test(filepath)) {
-    text = sortPackageJson(text, { sortOrder: packageJsonSortOrder });
+    json = sortPackageJson(text, { sortOrder: packageJsonSortOrder });
 
     // sort exports
-    text = JSON.stringify(sortExports(text));
+    json = JSON.stringify(sortExports(text));
   }
 
-  return text;
+  return json;
 }
 
 export const plugin: Plugin = {

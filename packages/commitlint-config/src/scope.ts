@@ -6,7 +6,7 @@ import { parseYAML, parseJSON } from "confbox";
 import { default as fg } from "fast-glob";
 import { default as consola } from "consola";
 
-function getScopes() {
+function getScopes(): ScopesTypeItem[] {
   let scopes: ScopesTypeItem[] = [];
 
   const path = resolve(process.cwd(), "pnpm-workspace.yaml");
@@ -18,9 +18,9 @@ function getScopes() {
     readFileSync(path, "utf-8")
   );
 
-  const patterns = packages.map((pattern) => {
-    return pattern.replace(/\/?$/, "/package.json");
-  });
+  const patterns = packages.map((pattern) =>
+    pattern.replace(/\/?$/, "/package.json")
+  );
 
   patterns.forEach((pattern) => {
     const filepaths = fg.sync(pattern, {
@@ -44,7 +44,7 @@ function getScopes() {
 
 export const scopes: ScopesTypeItem[] = getScopes();
 
-function getDefaultScope() {
+function getDefaultScope(): string[] {
   let defaultScopes: string[] = [];
 
   const files = execSync("git status --porcelain || true")
