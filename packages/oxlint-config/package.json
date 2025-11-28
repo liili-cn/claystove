@@ -1,0 +1,33 @@
+{
+  "name": "@liili-cn/oxlint-config",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "description": "liili 自用的 oxlint 配置",
+  "keywords": [
+    "oxlint",
+    "config"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "files": [
+    "./.oxlintrc.json",
+    "./CHANGELOG.md"
+  ],
+  "peerDependencies": {
+    "eslint-plugin-jsonc": "2.21.0"
+  }
+}

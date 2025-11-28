@@ -36,6 +36,7 @@
     "@changesets/cli": "2.29.7",
     "@commitlint/cli": "20.1.0",
     "@liili-cn/commitlint-config": "workspace:*",
+    "@liili-cn/oxlint-config": "workspace:*",
     "@liili-cn/prettier-config": "workspace:*",
     "@liili-cn/prettier-plugin-sort": "workspace:*",
     "commitizen": "4.3.1",
