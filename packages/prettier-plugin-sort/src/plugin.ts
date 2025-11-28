@@ -1,10 +1,27 @@
 import type { ParserOptions, Plugin } from "prettier";
+import { default as detectIndent } from "detect-indent";
+import { detectNewlineGraceful as detectNewline } from "detect-newline";
 import { packageJsonSortOrder } from "./order";
 import { parsers } from "prettier/plugins/babel";
 import { sortExports } from "./sort";
 import { sortPackageJson } from "sort-package-json";
 
 const PKG_REG = /[/\\]package\.json$/;
+
+function editStringJSON(json: string, over: (json: string) => object) {
+  const { indent, type } = detectIndent(json);
+  const endCharacters = json.slice(-1) === "\n" ? "\n" : "";
+  const newline = detectNewline(json);
+
+  let result =
+    JSON.stringify(over(json), undefined, type === "tab" ? "\t" : indent) +
+    endCharacters;
+  if (newline === "\r\n") {
+    result = json.replaceAll("\n", newline);
+  }
+
+  return result;
+}
 
 function preprocess(text: string, options: ParserOptions): string {
   let json = text;
@@ -14,7 +31,7 @@ function preprocess(text: string, options: ParserOptions): string {
     json = sortPackageJson(text, { sortOrder: packageJsonSortOrder });
 
     // sort exports
-    json = JSON.stringify(sortExports(text));
+    json = editStringJSON(json, sortExports);
   }
 
   return json;
