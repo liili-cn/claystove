@@ -26,8 +26,5 @@
   "files": [
     "./.oxlintrc.json",
     "./CHANGELOG.md"
-  ],
-  "peerDependencies": {
-    "eslint-plugin-jsonc": "2.21.0"
-  }
+  ]
 }
