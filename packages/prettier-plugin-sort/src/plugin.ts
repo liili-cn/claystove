@@ -23,7 +23,7 @@ function editStringJSON(json: string, over: (json: string) => object) {
   return result;
 }
 
-function preprocess(text: string, options: ParserOptions): string {
+function preprocess(text: string, options: ParserOptions) {
   let json = text;
   const { filepath } = options;
 

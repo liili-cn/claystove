@@ -5,6 +5,7 @@ import type { ScopesTypeItem } from "./types/types";
 import { default as consola } from "consola";
 import { execSync } from "node:child_process";
 import { default as fg } from "fast-glob";
+import { uniq } from "es-toolkit/array";
 
 function getScopes(): ScopesTypeItem[] {
   let scopes: ScopesTypeItem[] = [];
@@ -54,15 +55,13 @@ function getDefaultScope(): string[] {
     .map((line) => line.slice(3).trim());
   consola.log(`本次提交涉及文件：\n${files.join("\n")}`);
 
-  const dirnames = [...new Set(files.map((file) => dirname(file)))];
+  const dirnames = uniq(files.map((file) => dirname(file)));
 
   scopes
     .filter((scope) => {
       const { name } = scope;
       const pkgname = name.slice(0, name.indexOf(":"));
-      return dirnames.some(
-        (dirname) => dirname === pkgname || dirname.startsWith(pkgname)
-      );
+      return dirnames.some((dirname) => dirname.startsWith(pkgname));
     })
     .forEach((scope) => {
       defaultScopes.push(scope.value);

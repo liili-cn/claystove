@@ -54,6 +54,7 @@
   "dependencies": {
     "confbox": "0.2.2",
     "consola": "3.4.2",
+    "es-toolkit": "1.42.0",
     "fast-glob": "3.3.3"
   },
   "devDependencies": {

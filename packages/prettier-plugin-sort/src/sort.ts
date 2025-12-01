@@ -1,19 +1,14 @@
 import type { PackageJson, PackageJsonExports } from "pkg-types";
 import { destr } from "destr";
+import { partition } from "es-toolkit/array";
 
 function _sortExports(
   exports?: PackageJsonExports
 ): PackageJsonExports | undefined {
   if (typeof exports === "object" && !Array.isArray(exports)) {
-    const paths: string[] = [];
-    const conditions: string[] = [];
-    Object.keys(exports).forEach((key) => {
-      if (key.startsWith(".")) {
-        paths.push(key);
-      } else {
-        conditions.push(key);
-      }
-    });
+    const [paths, conditions] = partition(Object.keys(exports), (key) =>
+      key.startsWith(".")
+    );
 
     {
       const index = conditions.indexOf("types");
