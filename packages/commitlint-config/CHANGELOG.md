@@ -1,5 +1,11 @@
 # @liili-cn/commitlint-config
 
+## 0.1.1
+
+### Patch Changes
+
+- [`ef8df05`](https://github.com/liili-cn/claystove/commit/ef8df05a2127674b75a47db9a8a009eb2a8a0e93) Thanks [@liili-cn](https://github.com/liili-cn)! - 使用工具库 es-toolkit
+
 ## 0.1.0
 
 ### Minor Changes
