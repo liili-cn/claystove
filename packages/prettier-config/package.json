@@ -52,7 +52,9 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
+    "@liili-cn/prettier-plugin-sort": "*",
     "@types/node": "24.9.1",
+    "prettier": "3.6.2",
     "publint": "0.3.15",
     "typescript": "5.9.3",
     "unbuild": "3.6.1"

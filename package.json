@@ -24,7 +24,7 @@
     "cz": "pnpm exec cz",
     "format": "pnpm exec prettier --ignore-unknown --write .",
     "hooks": "pnpm exec lefthook install",
-    "lint": "oxlint --type-aware --fix ."
+    "lint": "pnpm exec manypkg fix && pnpm exec oxlint --type-aware --fix ."
   },
   "config": {
     "commitizen": {
@@ -39,6 +39,7 @@
     "@liili-cn/oxlint-config": "workspace:*",
     "@liili-cn/prettier-config": "workspace:*",
     "@liili-cn/prettier-plugin-sort": "workspace:*",
+    "@manypkg/cli": "0.25.1",
     "commitizen": "4.3.1",
     "cz-git": "1.12.0",
     "lefthook": "2.0.1",
