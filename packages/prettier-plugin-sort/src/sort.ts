@@ -3,7 +3,7 @@ import { destr } from "destr";
 import { partition } from "es-toolkit/array";
 
 function _sortExports(
-  exports?: PackageJsonExports
+  exports: PackageJsonExports | undefined
 ): PackageJsonExports | undefined {
   if (typeof exports === "object" && !Array.isArray(exports)) {
     const [paths, conditions] = partition(Object.keys(exports), (key) =>
