@@ -157,7 +157,7 @@
     "promise/catch-or-return": "error",
     "promise/spec-only": "error",
     // typescript
-    "typescript/explicit-function-return-type": "allow",
+    "typescript/explicit-function-return-type": "error",
     "typescript/explicit-module-boundary-types": "error",
     "typescript/no-dynamic-delete": "error",
     "typescript/no-empty-object-type": "error",

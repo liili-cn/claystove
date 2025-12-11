@@ -8,7 +8,7 @@ import { sortPackageJson } from "sort-package-json";
 
 const PKG_REG = /[/\\]package\.json$/;
 
-function editStringJSON(json: string, over: (json: string) => object) {
+function editStringJSON(json: string, over: (json: string) => object): string {
   const { indent, type } = detectIndent(json);
   const endCharacters = json.slice(-1) === "\n" ? "\n" : "";
   const newline = detectNewline(json);
@@ -23,7 +23,7 @@ function editStringJSON(json: string, over: (json: string) => object) {
   return result;
 }
 
-function preprocess(text: string, options: ParserOptions) {
+function preprocess(text: string, options: ParserOptions): string {
   let json = text;
   const { filepath } = options;
 
