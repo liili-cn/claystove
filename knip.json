@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    ".": {
+      "ignoreDependencies": ["@liili-cn/oxlint-config"]
+    },
+    "packages/*": {
+      "entry": ["src/{index,main}.ts"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "packages/prettier-config": {
+      "ignoreDependencies": ["@liili-cn/prettier-plugin-sort"]
+    }
+  },
+  "tags": ["-lintignore"],
+  "ignoreExportsUsedInFile": {
+    "interface": true,
+    "type": true
+  }
+}

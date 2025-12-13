@@ -1,8 +1,12 @@
 {
   "$schema": "https://turbo.net.cn/schema.json",
   "tasks": {
+    "check-types": {
+      "inputs": ["./src/**"],
+      "outputs": ["./src/**"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "check-types"],
       "inputs": ["./src/**"],
       "outputs": ["./dist/**"]
     }

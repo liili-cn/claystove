@@ -46,13 +46,13 @@
     "build": "pnpm exec unbuild",
     "check-exports": "pnpm exec attw --pack .",
     "check-package": "pnpm exec publint",
-    "check-type": "pnpm exec tsc -p tsconfig.lib.json",
+    "check-types": "pnpm exec tsc -p tsconfig.lib.json --noEmit",
     "prepack": "pnpm build",
     "prepublishOnly": "pnpm check-exports && pnpm check-package"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
-    "@liili-cn/prettier-plugin-sort": "*",
+    "@liili-cn/prettier-plugin-sort": "workspace:*",
     "@types/node": "24.9.1",
     "prettier": "3.6.2",
     "publint": "0.3.15",
@@ -60,7 +60,7 @@
     "unbuild": "3.6.1"
   },
   "peerDependencies": {
-    "@liili-cn/prettier-plugin-sort": "workspace:*",
+    "@liili-cn/prettier-plugin-sort": "workspace:^",
     "prettier": "^3.6.2"
   }
 }

@@ -46,7 +46,7 @@
     "build": "pnpm exec unbuild",
     "check-exports": "pnpm exec attw --pack .",
     "check-package": "pnpm exec publint",
-    "check-type": "pnpm exec tsc -p tsconfig.lib.json",
+    "check-types": "pnpm exec tsc -p tsconfig.lib.json --noEmit",
     "prepack": "pnpm build",
     "prepublishOnly": "pnpm check-exports && pnpm check-package"
   },
