@@ -1,6 +1,6 @@
 {
   "name": "@liili-cn/prettier-plugin-sort",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "type": "module",
   "description": "liili 自用的 prettier 插件，对 package.json 进行排序",
