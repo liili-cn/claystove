@@ -24,7 +24,11 @@
     "cz": "pnpm exec cz",
     "format": "pnpm exec prettier --ignore-unknown --write .",
     "hooks": "pnpm exec lefthook install",
-    "lint": "pnpm exec oxlint --type-aware --fix . && pnpm exec knip --fix && pnpm exec manypkg fix"
+    "lint": "pnpm exec redrun -s lint:*",
+    "lint:step1": "pnpm exec oxlint --type-aware --fix .",
+    "lint:step2": "pnpm exec knip --fix",
+    "lint:step3": "pnpm exec manypkg fix",
+    "lint:step4": "pnpm exec syncpack fix --dependency-types !peer"
   },
   "config": {
     "commitizen": {
@@ -48,6 +52,8 @@
     "oxlint": "1.29.0",
     "oxlint-tsgolint": "0.8.1",
     "prettier": "3.6.2",
+    "redrun": "12.0.1",
+    "syncpack": "14.0.0-alpha.32",
     "turbo": "2.6.0",
     "typescript": "5.9.3"
   },
