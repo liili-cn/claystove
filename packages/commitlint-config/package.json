@@ -5,8 +5,8 @@
   "type": "module",
   "description": "liili 自用的 commitlint 和 cz-git 配置",
   "keywords": [
-    "config",
     "commitlint",
+    "config",
     "cz-git"
   ],
   "repository": {
