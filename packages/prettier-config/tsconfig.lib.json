@@ -16,8 +16,6 @@
     // Modules
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "paths": {},
-    "types": [],
     "allowImportingTsExtensions": true,
     "noUncheckedSideEffectImports": true,
 
