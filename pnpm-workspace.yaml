@@ -1,8 +1,5 @@
 packages:
   - "packages/*"
 
-# Dependency Hoisting Settings
-hoist: false
-
-# CLI Settings
-engineStrict: true
+publicHoistPattern:
+  - "@zag-js*"

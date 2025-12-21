@@ -1,0 +1,65 @@
+{
+  "name": "@claystove/panda-preset",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "description": "claystove Panda CSS 预设",
+  "keywords": [
+    "panda",
+    "preset"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "files": [
+    "./dist",
+    "./CHANGELOG.md"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "pnpm exec unbuild",
+    "check-exports": "pnpm exec attw --pack .",
+    "check-package": "pnpm exec publint",
+    "check-types": "pnpm exec tsc -p tsconfig.lib.json --noEmit",
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm check-exports && pnpm check-package"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "5.30.0",
+    "@pandacss/dev": "1.7.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
+    "@pandacss/types": "1.7.0",
+    "@types/node": "24.9.1",
+    "publint": "0.3.15",
+    "typescript": "5.9.3",
+    "unbuild": "3.6.1"
+  }
+}
