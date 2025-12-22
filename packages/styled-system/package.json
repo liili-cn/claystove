@@ -1,0 +1,81 @@
+{
+  "name": "@claystove/styled-system",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "description": "claystove 样式系统",
+  "keywords": [
+    "styled-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liili-cn/claystove.git"
+  },
+  "homepage": "https://github.com/liili-cn/claystove#readme",
+  "bugs": {
+    "url": "https://github.com/liili-cn/claystove/issues",
+    "email": "liili_cn@hotmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Liili",
+    "email": "liili_cn@hotmail.com",
+    "url": "https://github.com/liili-cn"
+  },
+  "files": [
+    "./dist",
+    "./CHANGELOG.md"
+  ],
+  "exports": {
+    "./css": {
+      "types": "./dist/css/index.d.ts",
+      "require": "./dist/css/index.mjs",
+      "import": "./dist/css/index.mjs"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "require": "./dist/tokens/index.mjs",
+      "import": "./dist/tokens/index.mjs"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/types/index.mjs",
+      "import": "./dist/types/index.mjs"
+    },
+    "./patterns": {
+      "types": "./dist/patterns/index.d.ts",
+      "require": "./dist/patterns/index.mjs",
+      "import": "./dist/patterns/index.mjs"
+    },
+    "./recipes": {
+      "types": "./dist/recipes/index.d.ts",
+      "require": "./dist/recipes/index.mjs",
+      "import": "./dist/recipes/index.mjs"
+    },
+    "./jsx": {
+      "types": "./dist/jsx/index.d.ts",
+      "require": "./dist/jsx/index.mjs",
+      "import": "./dist/jsx/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "panda codegen --clean",
+    "check-exports": "pnpm exec attw --pack .",
+    "check-package": "pnpm exec publint",
+    "dev": "panda codegen --watch",
+    "prepack": "pnpm build",
+    "prepare": "panda codegen --clean",
+    "prepublishOnly": "pnpm check-exports && pnpm check-package",
+    "studio": "pnpm exec panda studio"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
+    "@claystove/panda-preset": "workspace:*",
+    "@pandacss/dev": "1.7.0",
+    "@pandacss/preset-base": "1.7.1",
+    "@pandacss/preset-panda": "1.7.1",
+    "@pandacss/studio": "1.7.1",
+    "@pandacss/types": "1.7.0",
+    "publint": "0.3.15"
+  }
+}

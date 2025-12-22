@@ -37,3 +37,8 @@ dist/
 
 # Turbo
 .turbo/
+
+## Panda
+styled-system
+styled-system-studio
+!packages/styled-system
