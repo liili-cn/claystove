@@ -1,119 +1,43 @@
 import { defineSemanticTokens } from "@pandacss/dev";
 
 export const yellow = defineSemanticTokens.colors({
-  "1": { value: { _light: "#fdfdf9", _dark: "#14120b" } },
-  "2": { value: { _light: "#fefce9", _dark: "#1b180f" } },
-  "3": { value: { _light: "#fffab8", _dark: "#2d2305" } },
-  "4": { value: { _light: "#fff394", _dark: "#362b00" } },
-  "5": { value: { _light: "#ffe770", _dark: "#433500" } },
-  "6": { value: { _light: "#f3d768", _dark: "#524202" } },
-  "7": { value: { _light: "#e4c767", _dark: "#665417" } },
-  "8": { value: { _light: "#d5ae39", _dark: "#836a21" } },
-  "9": { value: { _light: "#ffe629", _dark: "#ffe629" } },
-  "10": { value: { _light: "#ffdc00", _dark: "#ffff57" } },
-  "11": { value: { _light: "#9e6c00", _dark: "#f5e147" } },
-  "12": { value: { _light: "#473b1f", _dark: "#f6eeb4" } },
-  a1: { value: { _light: "#aaaa0006", _dark: "#d1510004" } },
-  a2: { value: { _light: "#f4dd0016", _dark: "#f9b4000b" } },
-  a3: { value: { _light: "#ffee0047", _dark: "#ffaa001e" } },
-  a4: { value: { _light: "#ffe3016b", _dark: "#fdb70028" } },
-  a5: { value: { _light: "#ffd5008f", _dark: "#febb0036" } },
-  a6: { value: { _light: "#ebbc0097", _dark: "#fec40046" } },
-  a7: { value: { _light: "#d2a10098", _dark: "#fdcb225c" } },
-  a8: { value: { _light: "#c99700c6", _dark: "#fdca327b" } },
-  a9: { value: { _light: "#ffe100d6", _dark: "#ffe629" } },
-  a10: { value: { _light: "#ffdc00", _dark: "#ffff57" } },
-  a11: { value: { _light: "#9e6c00", _dark: "#fee949f5" } },
-  a12: { value: { _light: "#2e2000e0", _dark: "#fef6baf6" } },
-  solid: {
-    bg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.9}", _dark: "{colors.yellow.9}" },
-      },
-      hover: {
-        value: { _light: "{colors.yellow.10}", _dark: "{colors.yellow.10}" },
-      },
-    },
-    fg: {
-      DEFAULT: {
-        value: { _light: "{colors.gray.12}", _dark: "{colors.gray.1}" },
-      },
-    },
+  "50": {
+    value: { _light: "oklch(0.95 0.03 99)", _dark: "oklch(0.175 0.03 99)" },
   },
-  subtle: {
-    bg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a3}", _dark: "{colors.yellow.a3}" },
-      },
-      hover: {
-        value: { _light: "{colors.yellow.a4}", _dark: "{colors.yellow.a4}" },
-      },
-      active: {
-        value: { _light: "{colors.yellow.a5}", _dark: "{colors.yellow.a5}" },
-      },
-    },
-    fg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a11}", _dark: "{colors.yellow.a11}" },
-      },
-    },
+  "100": {
+    value: { _light: "oklch(0.92 0.052 99)", _dark: "oklch(0.22 0.052 99)" },
   },
-  surface: {
-    bg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a2}", _dark: "{colors.yellow.a2}" },
-      },
-      active: {
-        value: { _light: "{colors.yellow.a3}", _dark: "{colors.yellow.a3}" },
-      },
-    },
-    border: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a6}", _dark: "{colors.yellow.a6}" },
-      },
-      hover: {
-        value: { _light: "{colors.yellow.a7}", _dark: "{colors.yellow.a7}" },
-      },
-    },
-    fg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a11}", _dark: "{colors.yellow.a11}" },
-      },
-    },
+  "200": {
+    value: { _light: "oklch(0.88 0.08 99)", _dark: "oklch(0.265 0.063 99)" },
   },
-  outline: {
-    bg: {
-      hover: {
-        value: { _light: "{colors.yellow.a2}", _dark: "{colors.yellow.a2}" },
-      },
-      active: {
-        value: { _light: "{colors.yellow.a3}", _dark: "{colors.yellow.a3}" },
-      },
-    },
-    border: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a7}", _dark: "{colors.yellow.a7}" },
-      },
-    },
-    fg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a11}", _dark: "{colors.yellow.a11}" },
-      },
-    },
+  "300": {
+    value: { _light: "oklch(0.85 0.105 99)", _dark: "oklch(0.31 0.074 99)" },
   },
-  plain: {
-    bg: {
-      hover: {
-        value: { _light: "{colors.yellow.a3}", _dark: "{colors.yellow.a3}" },
-      },
-      active: {
-        value: { _light: "{colors.yellow.a4}", _dark: "{colors.yellow.a4}" },
-      },
-    },
-    fg: {
-      DEFAULT: {
-        value: { _light: "{colors.yellow.a11}", _dark: "{colors.yellow.a11}" },
-      },
-    },
+  "400": {
+    value: { _light: "oklch(0.80 0.137 99)", _dark: "oklch(0.355 0.085 99)" },
+  },
+  "500": {
+    value: { _light: "oklch(0.77 0.17 99)", _dark: "oklch(0.4 0.095 99)" },
+  },
+  "600": {
+    value: { _light: "oklch(0.72 0.172 99)", _dark: "oklch(0.445 0.106 99)" },
+  },
+  "700": {
+    value: { _light: "oklch(0.68 0.163 99)", _dark: "oklch(0.49 0.117 99)" },
+  },
+  "800": {
+    value: { _light: "oklch(0.63 0.15 99)", _dark: "oklch(0.535 0.128 99)" },
+  },
+  "900": {
+    value: { _light: "oklch(0.58 0.138 99)", _dark: "oklch(0.58 0.138 99)" },
+  },
+  "1000": {
+    value: { _light: "oklch(0.52 0.123 99)", _dark: "oklch(0.68 0.163 99)" },
+  },
+  "1100": {
+    value: { _light: "oklch(0.45 0.108 99)", _dark: "oklch(0.77 0.17 99)" },
+  },
+  "1200": {
+    value: { _light: "oklch(0.37 0.088 99)", _dark: "oklch(0.88 0.08 99)" },
   },
 });

@@ -51,7 +51,6 @@
     "prepublishOnly": "pnpm check-exports && pnpm check-package"
   },
   "dependencies": {
-    "@ark-ui/solid": "5.30.0",
     "@pandacss/dev": "1.7.0"
   },
   "devDependencies": {
